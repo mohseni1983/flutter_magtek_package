@@ -5,6 +5,17 @@ All notable changes to the Magtek Card Reader plugin will be documented in this 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2024-01-15
+
+### Added
+- Android platform support with Kotlin implementation
+- USB Host API integration for Android devices
+- Automatic USB permission handling
+- USB device filters for Magtek devices
+- Coroutine-based background monitoring
+- Android-specific setup documentation
+- Cross-platform support (Android, Linux, Windows, Raspberry Pi)
+
 ## [1.1.0] - 2024-01-15
 
 ### Added

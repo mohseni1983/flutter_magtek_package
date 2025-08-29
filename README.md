@@ -29,11 +29,11 @@ All devices use vendor ID: 0x0801
 
 | Platform    | Support |
 |-------------|---------|
+| Android     | ✅      |
 | Linux       | ✅      |
 | Windows     | ✅      |
 | Raspberry Pi| ✅      |
 | macOS       | ❌      |
-| Android     | ❌      |
 | iOS         | ❌      |
 
 ## Installation
@@ -48,6 +48,13 @@ dependencies:
 ```
 
 ### 2. Install System Dependencies
+
+#### Android:
+```bash
+# Ensure Android SDK is installed with API 21+
+# USB Host support is required on target devices
+# No additional dependencies needed - uses Android USB Host API
+```
 
 #### Windows:
 ```cmd
@@ -79,6 +86,9 @@ sudo yum install libusb1-devel hidapi-devel
 ```
 
 ### 3. Set Up Device Permissions
+
+#### Android:
+Android requires USB Host support and user permission for device access. The plugin automatically handles USB permission requests.
 
 #### Windows:
 Windows 10+ automatically installs HID drivers for Magtek devices. No additional configuration needed.
@@ -117,6 +127,7 @@ flutter pub get
 ```
 
 For detailed platform-specific setup instructions, see:
+- [Android Setup Guide](ANDROID_SETUP.md)
 - [Windows Setup Guide](WINDOWS_SETUP.md)
 - [Linux Setup Guide](SETUP.md)
 
