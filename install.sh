@@ -8,6 +8,14 @@ set -e
 echo "=== Magtek Card Reader Plugin Installation ==="
 echo
 
+# Check if running on Windows (Git Bash, WSL, etc.)
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
+    echo "This script is for Linux systems only."
+    echo "For Windows setup, please follow the instructions in WINDOWS_SETUP.md"
+    echo "or run the Windows PowerShell setup script if available."
+    exit 1
+fi
+
 # Check if running as root
 if [ "$EUID" -eq 0 ]; then
     echo "Error: Do not run this script as root. Run as a regular user with sudo access."

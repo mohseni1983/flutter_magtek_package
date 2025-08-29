@@ -30,8 +30,8 @@ All devices use vendor ID: 0x0801
 | Platform    | Support |
 |-------------|---------|
 | Linux       | ✅      |
+| Windows     | ✅      |
 | Raspberry Pi| ✅      |
-| Windows     | ❌      |
 | macOS       | ❌      |
 | Android     | ❌      |
 | iOS         | ❌      |
@@ -48,6 +48,16 @@ dependencies:
 ```
 
 ### 2. Install System Dependencies
+
+#### Windows:
+```cmd
+# Install Visual Studio 2019 or later with C++ development tools
+# Install vcpkg (recommended) or use Windows HID APIs directly
+vcpkg install hidapi:x64-windows
+
+# Enable Flutter desktop support
+flutter config --enable-windows-desktop
+```
 
 #### Ubuntu/Debian:
 ```bash
@@ -68,8 +78,12 @@ sudo dnf install libusb1-devel hidapi-devel
 sudo yum install libusb1-devel hidapi-devel
 ```
 
-### 3. Set Up USB Permissions
+### 3. Set Up Device Permissions
 
+#### Windows:
+Windows 10+ automatically installs HID drivers for Magtek devices. No additional configuration needed.
+
+#### Linux:
 Create a udev rule to allow access to Magtek devices:
 
 ```bash
@@ -101,6 +115,10 @@ sudo usermod -aG plugdev $USER
 ```bash
 flutter pub get
 ```
+
+For detailed platform-specific setup instructions, see:
+- [Windows Setup Guide](WINDOWS_SETUP.md)
+- [Linux Setup Guide](SETUP.md)
 
 ## Usage
 

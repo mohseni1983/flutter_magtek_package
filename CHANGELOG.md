@@ -5,6 +5,16 @@ All notable changes to the Magtek Card Reader plugin will be documented in this 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2024-01-15
+
+### Added
+- Windows platform support with native C++ implementation
+- HIDAPI integration for Windows with vcpkg support
+- Fallback to native Windows HID APIs when HIDAPI is not available
+- Visual Studio project files and CMake configuration for Windows
+- Windows-specific setup documentation
+- Cross-platform development support (Linux, Windows, Raspberry Pi)
+
 ## [1.0.0] - 2024-01-15
 
 ### Added

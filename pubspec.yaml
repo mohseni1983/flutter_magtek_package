@@ -1,6 +1,6 @@
 name: magtek_card_reader
-description: A Flutter plugin for communicating with Magtek 3-track credit card readers via USB on Linux and Raspberry Pi.
-version: 1.0.0
+description: A Flutter plugin for communicating with Magtek 3-track credit card readers via USB on Linux, Windows, and Raspberry Pi.
+version: 1.1.0
 homepage: https://github.com/your-username/magtek_card_reader
 
 environment:
@@ -37,6 +37,8 @@ flutter:
     platforms:
       linux:
         pluginClass: MagtekCardReaderPlugin
+      windows:
+        pluginClass: MagtekCardReaderPluginCApi
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
