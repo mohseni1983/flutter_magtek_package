@@ -1,0 +1,27 @@
+# Magtek USB Card Readers udev rules
+# Place this file in /etc/udev/rules.d/99-magtek.rules
+#
+# After creating this file, run:
+# sudo udevadm control --reload-rules
+# sudo usermod -aG plugdev $USER
+# Then log out and log back in
+#
+# Vendor ID: 0801 (Magtek)
+
+# Mini Swipe Reader
+ATTRS{idVendor}=="0801", ATTRS{idProduct}=="0001", MODE="0666", GROUP="plugdev", TAG+="uaccess", SYMLINK+="magtek-mini-swipe"
+
+# USB Swipe Reader  
+ATTRS{idVendor}=="0801", ATTRS{idProduct}=="0002", MODE="0666", GROUP="plugdev", TAG+="uaccess", SYMLINK+="magtek-usb-swipe"
+
+# eDynamo
+ATTRS{idVendor}=="0801", ATTRS{idProduct}=="0003", MODE="0666", GROUP="plugdev", TAG+="uaccess", SYMLINK+="magtek-edynamo"
+
+# uDynamo
+ATTRS{idVendor}=="0801", ATTRS{idProduct}=="0004", MODE="0666", GROUP="plugdev", TAG+="uaccess", SYMLINK+="magtek-udynamo"
+
+# SureSwipe Reader
+ATTRS{idVendor}=="0801", ATTRS{idProduct}=="0010", MODE="0666", GROUP="plugdev", TAG+="uaccess", SYMLINK+="magtek-sureswipe"
+
+# Generic rule for other Magtek devices
+ATTRS{idVendor}=="0801", MODE="0666", GROUP="plugdev", TAG+="uaccess"
