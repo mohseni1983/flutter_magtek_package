@@ -1,4 +1,4 @@
-package com.example.magtek_card_reader
+package dev.magtek.card_reader
 
 import android.app.PendingIntent
 import android.content.BroadcastReceiver

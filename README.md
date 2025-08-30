@@ -45,7 +45,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  magtek_card_reader: ^1.0.0
+  magtek_card_reader: ^1.3.0-beta
 ```
 
 ### 2. Install System Dependencies

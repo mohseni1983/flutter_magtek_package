@@ -1,0 +1,23 @@
+# Pub ignore file for magtek_card_reader
+
+# Old Android package structure (should not be published)
+android/src/main/kotlin/com/example/
+android/src/test/kotlin/com/example/
+
+# Development files
+.vscode/
+.idea/
+*.iml
+
+# Build artifacts
+build/
+.dart_tool/
+
+# Local development
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Platform specific
+linux/build/
+windows/build/

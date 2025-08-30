@@ -64,7 +64,7 @@ class MagtekCardReaderWeb extends MagtekCardReaderPlatform {
         );
       }
 
-      print('WebUSB Magtek Card Reader initialized');
+      // WebUSB Magtek Card Reader initialized
     } catch (e) {
       throw DeviceInitializationException(
         'Failed to initialize web USB support: $e',
@@ -80,7 +80,7 @@ class MagtekCardReaderWeb extends MagtekCardReaderPlatform {
       await _cardSwipeController.close();
       await _deviceConnectionController.close();
     } catch (e) {
-      print('Error during web plugin disposal: $e');
+      // Error during web plugin disposal: $e
     }
   }
 
@@ -157,7 +157,7 @@ class MagtekCardReaderWeb extends MagtekCardReaderPlatform {
       final deviceInfo = _createDeviceInfo(device);
       _deviceConnectionController.add(deviceInfo);
 
-      print('Connected to Magtek device: ${deviceInfo.deviceName}');
+      // Connected to Magtek device: ${deviceInfo.deviceName}
       return true;
     } catch (e) {
       throw DeviceConnectionException(
@@ -189,10 +189,10 @@ class MagtekCardReaderWeb extends MagtekCardReaderPlatform {
         
         _currentDevice = null;
         _currentDeviceId = null;
-        print('Disconnected from Magtek device');
+        // Disconnected from Magtek device
       }
     } catch (e) {
-      print('Error disconnecting device: $e');
+      // Error disconnecting device: $e
     }
   }
 
@@ -204,14 +204,14 @@ class MagtekCardReaderWeb extends MagtekCardReaderPlatform {
       _readFromDevice();
     });
     
-    print('Started device monitoring');
+    // Started device monitoring
   }
 
   void _stopMonitoring() {
     _isMonitoring = false;
     _monitoringTimer?.cancel();
     _monitoringTimer = null;
-    print('Stopped device monitoring');
+    // Stopped device monitoring
   }
 
   Future<void> _readFromDevice() async {
@@ -235,11 +235,11 @@ class MagtekCardReaderWeb extends MagtekCardReaderPlatform {
           
           if (bytes.isNotEmpty) {
             final cardData = _parseInputReport(bytes);
-            if (cardData.track1?.isNotEmpty == true ||
-                cardData.track2?.isNotEmpty == true ||
-                cardData.track3?.isNotEmpty == true) {
+            if (cardData.track1?.rawData?.isNotEmpty == true ||
+                cardData.track2?.rawData?.isNotEmpty == true ||
+                cardData.track3?.rawData?.isNotEmpty == true) {
               _cardSwipeController.add(cardData);
-              print('Card swipe detected via WebUSB');
+              // Card swipe detected via WebUSB
             }
           }
         }
@@ -357,7 +357,7 @@ class MagtekCardReaderWeb extends MagtekCardReaderPlatform {
       final devicePromise = js_util.callMethod(usb, 'requestDevice', [js_util.jsify(options)]);
       return await js_util.promiseToFuture<Object?>(devicePromise);
     } catch (e) {
-      print('User cancelled device selection or error: $e');
+      // User cancelled device selection or error: $e
       return null;
     }
   }
