@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Magtek USB device filters -->
+    <!-- Vendor ID: 0x0801 (Magtek) -->
+    
+    <!-- Magtek Mini Swipe Reader -->
+    <usb-device vendor-id="2049" product-id="1" />
+    
+    <!-- Magtek USB Swipe Reader -->
+    <usb-device vendor-id="2049" product-id="2" />
+    
+    <!-- Magtek eDynamo -->
+    <usb-device vendor-id="2049" product-id="3" />
+    
+    <!-- Magtek uDynamo -->
+    <usb-device vendor-id="2049" product-id="4" />
+    
+    <!-- Magtek SureSwipe Reader -->
+    <usb-device vendor-id="2049" product-id="16" />
+    
+    <!-- Generic Magtek filter (all Magtek devices) -->
+    <usb-device vendor-id="2049" />
+</resources>

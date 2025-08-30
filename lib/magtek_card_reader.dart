@@ -8,6 +8,9 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'magtek_card_reader_platform_interface.dart';
+import 'src/models/card_data.dart';
+import 'src/models/device_info.dart';
+import 'src/exceptions/magtek_exceptions.dart';
 
 export 'src/models/card_data.dart';
 export 'src/models/track_data.dart';

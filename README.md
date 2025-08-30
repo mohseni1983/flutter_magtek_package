@@ -27,14 +27,15 @@ All devices use vendor ID: 0x0801
 
 ## Platform Support
 
-| Platform    | Support |
-|-------------|---------|
-| Linux       | ✅      |
-| Windows     | ✅      |
-| Raspberry Pi| ✅      |
-| macOS       | ❌      |
-| Android     | ❌      |
-| iOS         | ❌      |
+| Platform    | Support | Requirements |
+|-------------|---------|--------------|
+| **Web**     | **✅** | **Chrome/Edge/Opera + HTTPS** |
+| Android     | ✅      | USB Host API 21+ |
+| Linux       | ✅      | libusb/hidapi |
+| Windows     | ✅      | HIDAPI/WinHID |
+| Raspberry Pi| ✅      | libusb/hidapi |
+| macOS       | ❌      | Not implemented |
+| iOS         | ❌      | Not implemented |
 
 ## Installation
 
@@ -44,10 +45,25 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  magtek_card_reader: ^1.0.0
+  magtek_card_reader: ^1.3.0-beta
 ```
 
 ### 2. Install System Dependencies
+
+#### Web:
+```bash
+# No dependencies required
+# Requires HTTPS in production (localhost exception for development)
+# Supported browsers: Chrome 61+, Edge 79+, Opera 48+
+# Not supported: Safari, Firefox
+```
+
+#### Android:
+```bash
+# Ensure Android SDK is installed with API 21+
+# USB Host support is required on target devices
+# No additional dependencies needed - uses Android USB Host API
+```
 
 #### Windows:
 ```cmd
@@ -79,6 +95,12 @@ sudo yum install libusb1-devel hidapi-devel
 ```
 
 ### 3. Set Up Device Permissions
+
+#### Web:
+WebUSB requires user permission for device access. The plugin shows browser's native device selection dialog. HTTPS required for production.
+
+#### Android:
+Android requires USB Host support and user permission for device access. The plugin automatically handles USB permission requests.
 
 #### Windows:
 Windows 10+ automatically installs HID drivers for Magtek devices. No additional configuration needed.
@@ -117,6 +139,8 @@ flutter pub get
 ```
 
 For detailed platform-specific setup instructions, see:
+- [Web Setup Guide](WEB_SETUP.md)
+- [Android Setup Guide](ANDROID_SETUP.md)
 - [Windows Setup Guide](WINDOWS_SETUP.md)
 - [Linux Setup Guide](SETUP.md)
 
